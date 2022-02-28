@@ -1,5 +1,3 @@
-import styled, {css} from 'styled-components'
-
 interface Props {
   pressed?: boolean;
   primary?: boolean;
@@ -12,10 +10,3 @@ export const Button: React.FC<Props> = (props) => {
       </button>
     )
 }
-
-// export const Button = styled.button<Props>`
-
-//   ${props => props.pressed && css`
-    
-//   `}
-// `
