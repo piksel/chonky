@@ -1,0 +1,15 @@
+$primary: #411980;
+
+$button-face: #e4dfd5;
+$button-border: color.adjust($button-face, $lightness: -10%);
+
+$button-face-active: color.adjust($button-face, $lightness: -10%);
+$button-border-active: color.adjust($button-face, $lightness: -20%);
+$button-border-checked: color.adjust($primary, $lightness: -10%);
+
+$button-face-checked-active: color.adjust($primary, $lightness: -5%);
+$button-face-checked: $primary;
+
+$button-text: rgba(0, 0, 0, 0.8);
+$button-text-checked: rgba(255, 255, 255, 1);
+$button-z: 4px;

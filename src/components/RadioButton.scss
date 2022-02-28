@@ -1,0 +1,145 @@
+@use "sass:color";
+
+@import "theme";
+
+
+:root {
+  /* --button-face: #370E7A;
+    --button-border: #250953; 
+      --button-text: rgba(255,255,255,.8);
+    --button-text-checked: rgba(255,255,255,1);
+    */
+  // --button-border: #999;
+  // --button-face: #ccc;
+  // --button-border-active: #777;
+  // --button-face-active: #aaa;
+  // --button-border-checked: color.adjust($primary, $lightness: -30%);
+  // --button-face-checked: $primary;
+  // --button-text: rgba(0, 0, 0, 0.8);
+  // --button-text-checked: rgba(255, 255, 255, 1);
+}
+
+.chy-button {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+
+  border:0;
+  border-radius: 3px;
+  padding: 0 0 $button-z 0;
+  background: $button-border;
+  transition-property: padding, margin, background;
+  vertical-align: top;
+
+  &,label {
+    transition-timing-function: linear;
+    transition-duration: 200ms;
+  }
+
+
+
+
+  &.primary {
+    background-color: color.adjust($primary, $lightness: -10%);
+    label{
+      color: $button-text-checked;
+      background-color: $primary;
+      border-color: color.adjust($primary, $lightness: -10%);
+    }
+    &:active {
+      background-color: color.adjust($primary, $lightness: -20%);
+      label {
+        background-color: color.adjust($primary, $lightness: -5%);
+        border-color: color.adjust($primary, $lightness: -20%);
+      }
+    }
+  }
+
+  
+
+  &:active {
+    background-color: $button-border-active;
+    padding-bottom: $button-z / 2;
+    margin-top: $button-z / 2;
+    label {
+      background-color: $button-face-active;
+      border-color: $button-border-active;
+    }
+  }
+
+  label {
+    transition-property: background, border-color;
+    border-radius: 3px;
+    background: $button-face;
+    border: 1px solid $button-border;
+    color: $button-text;
+    padding: 0.25em 1em;
+
+    display: block;
+    margin: 0;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 50ch;
+    overflow: hidden;
+  }
+}
+
+.chy-radiobuttons {
+  
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+
+  .chy-radiobutton {
+    @extend .chy-button;
+    position:relative;
+
+    border-radius: 3px 3px 0 0;
+
+    &:last-child {
+      border-bottom-right-radius: 3px;
+    }
+    &:first-child {
+      border-bottom-left-radius: 3px;
+    }
+ 
+    &.checked {
+      padding-bottom: 1px;
+      margin-top: $button-z - 1px;
+      color: $button-text-checked;
+      background-color: $button-border-checked;
+      cursor: default;
+  
+      label {
+        color: $button-text-checked;
+        border-color: $button-border-checked;
+        background: $button-face-checked;
+      }
+  
+      &:active {
+        background-color: $button-border-checked;
+        padding-bottom: 0;
+        margin-top: $button-z;
+  
+        label {
+          border-color: $button-border-checked;
+          background: $button-face-checked-active;
+        }
+      }
+    }
+
+    input[type="radio"] {
+      appearance: none;
+      position: absolute;
+      left: -2px;
+      top: -2px;
+      right: 0;
+      bottom: 2px;
+      &:not(:checked) {
+        cursor: pointer;
+      }
+    }
+  }
+}
