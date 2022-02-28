@@ -137,6 +137,7 @@
       top: -2px;
       right: 0;
       bottom: 2px;
+      visibility: hidden;
       &:not(:checked) {
         cursor: pointer;
       }
