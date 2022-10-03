@@ -4,9 +4,9 @@
 
 table.chy-table {
 
-    border: 1px solid #d0c7b6;
+    border: 1px solid $chy-border-color;
     margin: 20px;
-    border-radius: 3px;
+    border-radius: $chy-border-radius;
     //padding: 10px;
     background: #eae7e1; 
     width: calc(100% - 40px);
@@ -18,7 +18,7 @@ table.chy-table {
         background: #eae7e1;
         padding-top: 10px;
         padding-bottom: 10px;
-        border-bottom: 1px solid #d0c7b6;
+        border-bottom: 1px solid $chy-border-color;
         text-align: left;
         border-radius: 3px 3px 0 0;
     }
@@ -46,14 +46,20 @@ table.chy-table {
     }
 
     tr.chy-table-selected-row {
-        background: #411980;
-        color: white;
+        // background: $chy-primary;
+        background: color.adjust($chy-button-face, $lightness: -5%);
+        td {
+            border-top: 1px transparent solid;
+            // border-top: 1px color.adjust($button-border-checked, $lightness: 5) solid;
+        }
+        // color: white;
         &:hover {
-            background: #411980e0;
+            background: color.adjust($chy-button-face, $lightness: -3%);
         }
     }
 
     td {
+        border-top: 1px #ffffffd0 solid;
         padding: 10px 0;
         cursor: pointer;
         // z-index: 2;
@@ -99,7 +105,7 @@ table.chy-table {
 
     tr {
         &:hover {
-            background: #41198020;
+            background: color.adjust($chy-button-face, $lightness: 5%);
         }
         >:first-child {
             padding-left: 20px;

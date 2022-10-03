@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.scss';
-import { Box, Button, Radio, Section, Table } from './components';
+import { Box, Button, Chip, Radio, Section, Table } from './components';
 import { dummyTableDataCols, dummyTableData } from './dummyData';
 
 function App() {
@@ -17,9 +17,14 @@ function App() {
 
       <Section header="Buttons">
 
-        <div style={{padding: '10px'}}>
+        <div style={{padding: '15px'}}>
           <Button primary>Primary</Button>
           <Button>Not as important</Button>
+          <Button color="green">Green!</Button>
+          <Button color="danger">Danger!</Button>
+          <Button color="blue">Blue!</Button>
+          <Button color="orange">Orange!</Button>
+          <Button color="pink">Pink!</Button>
         </div>
       </Section>
 
@@ -35,6 +40,40 @@ function App() {
         </Radio>
 
       </Box>
+      </Section>
+
+      <Section header="Chips">
+      <div style={{padding: '15px'}}>
+        <Chip color='primary'>Dill</Chip>
+        <Chip color="green">Green!</Chip>
+        <Chip color="danger">Danger!</Chip>
+        <Chip color="blue">Blue!</Chip>
+        <Chip color="orange">Orange!</Chip>
+        <Chip color="pink">Pink!</Chip>
+        <Chip color='rgb'>PARTAY</Chip>
+      </div>
+
+        <Box>
+          <details>
+            <summary>More party</summary>
+              <br/>
+              <div style={{overflowY: 'scroll', height: '200px'}}>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+            </div>
+          </details>
+
+        </Box>
       </Section>
 
       <Section header="Table">

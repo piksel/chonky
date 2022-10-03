@@ -1,3 +1,19 @@
+@mixin colorized($color) {
+  background-color: color.adjust($color, $lightness: -10%);
+  label{
+    color: $button-text-colorized;
+    background-color: $color;
+    border-color: color.adjust($color, $lightness: -10%);
+  }
+  &:active {
+    background-color: color.adjust($color, $lightness: -20%);
+    label {
+      background-color: color.adjust($color, $lightness: -5%);
+      border-color: color.adjust($color, $lightness: -20%);
+    }
+  }
+}
+
 .chy-button {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -20,21 +36,31 @@
     }
   
   
-    &.primary {
-      background-color: color.adjust($chy-primary, $lightness: -10%);
-      label{
-        color: $button-text-checked;
-        background-color: $chy-primary;
-        border-color: color.adjust($chy-primary, $lightness: -10%);
-      }
-      &:active {
-        background-color: color.adjust($chy-primary, $lightness: -20%);
-        label {
-          background-color: color.adjust($chy-primary, $lightness: -5%);
-          border-color: color.adjust($chy-primary, $lightness: -20%);
-        }
-      }
+    &.chy-mod-primary {
+      @include colorized($chy-primary);
     }
+
+    &.chy-mod-green {
+      @include colorized(#359735);
+    }
+
+    &.chy-mod-danger {
+      @include colorized(#d32020);
+    }
+
+    &.chy-mod-blue {
+      @include colorized(#146ed4);
+    }
+
+    &.chy-mod-orange {
+      @include colorized(#e77415);
+    }
+
+    &.chy-mod-pink {
+      @include colorized(#e0188d);
+    }
+
+
   
     
   
@@ -65,4 +91,8 @@
       max-width: 50ch;
       overflow: hidden;
     }
+  }
+
+  .chy-button + .chy-button {
+    margin-left: 4px
   }

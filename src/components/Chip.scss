@@ -1,0 +1,73 @@
+@use 'sass:color';
+@import 'theme';
+
+.chy-chip {
+    border-radius: $chy-border-radius;
+
+    $lightness: 50%;
+    $saturation: 50%;
+    $step: 36;
+
+    &.chy-mod-primary {
+        background: $chy-primary;
+    }
+
+    &.chy-mod-green {
+        background: #359735;
+    }
+  
+    &.chy-mod-danger {
+        background: #d32020;
+    }
+
+    &.chy-mod-blue {
+        background: #146ed4;
+    }
+
+    &.chy-mod-orange {
+        background: #e77415;
+    }
+
+    &.chy-mod-pink {
+        background: #e0188d;
+    }
+
+    /*
+          <Button color="green">Green!</Button>
+          <Button color="danger">Danger!</Button>
+          <Button color="blue">Blue!</Button>
+          <Button color="orange">Orange!</Button>
+          <Button color="pink">Pink!</Button>
+    */
+
+    &.chy-mod-rgb {
+        background: linear-gradient(
+            0deg,
+            hsl($step *  0, $saturation, $lightness)   0%,
+            hsl($step *  1, $saturation, $lightness)  10%,
+            hsl($step *  2, $saturation, $lightness)  20%,
+            hsl($step *  3, $saturation, $lightness)  30%,
+            hsl($step *  4, $saturation, $lightness)  40%,
+            hsl($step *  5, $saturation, $lightness)  50%,
+            hsl($step *  6, $saturation, $lightness)  60%,
+            hsl($step *  7, $saturation, $lightness)  70%,
+            hsl($step *  8, $saturation, $lightness)  80%,
+            hsl($step *  9, $saturation, $lightness)  90%,
+            hsl($step * 10, $saturation, $lightness) 100%
+        );
+        background-attachment: fixed;
+        background-size: auto 400px;
+    }
+
+    padding: 5px 10px;
+    margin: 3px;
+    display: inline-block;
+    color: white;
+
+    &.chy-mod-right {
+        align-self: flex-end;
+    }
+    &:not(.chy-mod-right) {
+        align-self: flex-start;
+    }
+}

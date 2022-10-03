@@ -15,6 +15,10 @@
     @extend .chy-button;
     position:relative;
 
+    + .chy-radiobutton {
+      margin-left: 0;
+    }
+
     border-radius: 3px 3px 0 0;
 
     &:last-child {
