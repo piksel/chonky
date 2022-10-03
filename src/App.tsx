@@ -1,8 +1,18 @@
 import React from 'react';
 
 import './App.scss';
-import { Box, Button, Chip, Radio, Section, Table } from './components';
+import { Box, Button, Chip, ChipColor, Radio, Section, Table } from './components';
 import { dummyTableDataCols, dummyTableData } from './dummyData';
+
+const typeColor = (type: string): ChipColor => {
+  switch(type) {
+    case 'Weird': return 'rgb';
+    case 'Grass': return 'green';
+    case 'Fire': return 'orange';
+    case 'Water': return 'blue';
+    default: return 'primary';
+  }
+} 
 
 function App() {
   const [selectedTableRow, setSelectedTableRow] = React.useState<string>();
@@ -96,7 +106,7 @@ function App() {
           {dummyTableData.map(row => <React.Fragment key={row.Name}>
             <tr className={selectedTableRow === row.Name ? 'chy-table-selected-row' : ''} onClick={selectTableRow(row.Name)}>
               <td>{row.Name}</td>
-              <td>{row.Type}</td>
+              <td>{row.Type.split('/').map(t => <Chip key={t} color={typeColor(t)}>{t}</Chip>)}</td>
               <td>{row.Status}</td>
               <td>{row.Weight}</td>
             </tr>
@@ -104,7 +114,7 @@ function App() {
             <tr className={`chy-table-details-row`} onClick={selectTableRow()}>
               <td colSpan={dummyTableDataCols.length}>
                 <div className='chy-table-details'>
-                  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                  <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center'}}>
                     <div style={{}}>
                     <b>Description:</b><br />
                 {row.Description}
@@ -114,6 +124,7 @@ function App() {
                 
 
                 </div>
+                <div className='chy-table-details-shadow' />
               </td>
             </tr>
 

@@ -1,7 +1,7 @@
 
 import './Chip.scss';
 
-type ChipColor 
+export type ChipColor 
     = 'primary' 
     | 'rgb' 
     | 'green' 
