@@ -104,9 +104,15 @@ function App() {
             <tr className={`chy-table-details-row`} onClick={selectTableRow()}>
               <td colSpan={dummyTableDataCols.length}>
                 <div className='chy-table-details'>
-                <div style={{float: 'right'}}><Button primary>Use this starting pokébowl</Button></div>
-                <b>Description:</b><br />
+                  <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <div style={{}}>
+                    <b>Description:</b><br />
                 {row.Description}
+                    </div>
+                    <div style={{float: 'right'}}><Button color={row.Color}>Use this starting pokébowl</Button></div>
+                  </div>
+                
+
                 </div>
               </td>
             </tr>
