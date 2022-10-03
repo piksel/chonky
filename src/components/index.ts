@@ -1,2 +1,5 @@
 export * from './RadioButton'
 export * from './Button'
+export * from './Table'
+export * from './Box'
+export * from './Section'

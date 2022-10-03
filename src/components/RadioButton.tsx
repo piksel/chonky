@@ -1,42 +1,65 @@
 
-import React, { ReactElement, useContext, useState } from 'react';
+import React, { Dispatch, ReactElement, useContext, useState, useEffect, useRef } from 'react';
 import { StateTuple } from '../types';
 import './RadioButton.scss'
 
 interface RadioButtonsState { selected: string }
-type RadioButtonsContextValue = StateTuple<RadioButtonsState>
+type RadioButtonsContextValue =  StateTuple<RadioButtonsState>
 const RadioButtonsContext = React.createContext<RadioButtonsContextValue>([{selected: ""}, () => {}])
 
-interface RadioButtonsProps {initial: string,children:ReactElement<RadioButtonProps>[]}
+interface RadioButtonCommonProps {
+  size?: 'small' | 'medium' | 'large'
+}
+
+interface RadioButtonsProps extends RadioButtonCommonProps {
+  value?: string, 
+  valueChanged?: Dispatch<string>, 
+  children:ReactElement<RadioButtonProps>[],
+};
 export const RadioButtons: React.FC<RadioButtonsProps> = (props) => {
 
-  const [state, setState] = useState<RadioButtonsState>({selected: props.initial});
+  const {value, valueChanged} = props;
+  const commonProps = {size: props.size};
+  const [state, setState] = useState<RadioButtonsState>({selected: value ?? ""});
+  const valueRef = useRef(value);
+
+  useEffect(() => {
+    if (!valueChanged || valueRef.current === state.selected) return;
+    valueChanged(state.selected);
+    valueRef.current = state.selected;
+  }, [state.selected, valueChanged]);
+
+  useEffect(() => {
+    if (value === valueRef.current) return;
+    setState(s => ({...s, selected: value ?? ""}));
+    valueRef.current = value;
+  }, [value, valueRef]);
 
   return (
     <RadioButtonsContext.Provider value={[state, setState]}>
       <div className="chy-radiobuttons">
-      {props.children}
+      {props.children.map(c => ({...c, props: {...c.props, ...commonProps }}) )}
       </div>
     </RadioButtonsContext.Provider>
   )
 }
 
-interface RadioButtonProps { value: string }
+interface RadioButtonProps extends RadioButtonCommonProps { value: string }
 type RadioButtonType =  React.FC<RadioButtonProps>;
 
 export const RadioButton: RadioButtonType = (props) => {
+  const {value, size} = props;
   const [state, setState] = useContext(RadioButtonsContext);
   const checked = props.value === state.selected;
 
-  const btnChange = () => {
-    console.log("Button changed!", props.value);
-    setState(s => s.selected === props.value ? s : {selected: props.value})
-  }
+  const btnChange = () => setState(s => s.selected === value ? s : {selected: value});
 
-  return (<div className={`chy-radiobutton${checked?' checked':''}`}><label>
-    <input type="radio" checked={checked} onChange={() => btnChange()} />
-    {props.children}
-  </label></div>)
+  return (<div className={`chy-radiobutton${checked?' checked':''}${size?` chy-mod-${size}`:''}`}>
+    <label>
+      <input type="radio" checked={checked} onChange={() => btnChange()} />
+      {props.children}
+    </label>
+  </div>)
 }
 
 export const Radio = RadioButtons as (React.FC<RadioButtonsProps> & {Button: RadioButtonType});

@@ -1,15 +1,40 @@
-$primary: #411980;
+@use "sass:color";
 
-$button-face: #e4dfd5;
-$button-border: color.adjust($button-face, $lightness: -10%);
+$chy-primary: #411980;
 
-$button-face-active: color.adjust($button-face, $lightness: -10%);
-$button-border-active: color.adjust($button-face, $lightness: -20%);
-$button-border-checked: color.adjust($primary, $lightness: -10%);
+$chy-button-face: #e4dfd5;
+$button-border: color.adjust($chy-button-face, $lightness: -10%);
 
-$button-face-checked-active: color.adjust($primary, $lightness: -5%);
-$button-face-checked: $primary;
+$button-face-active: color.adjust($chy-button-face, $lightness: -10%);
+$button-border-active: color.adjust($chy-button-face, $lightness: -20%);
+$button-border-checked: color.adjust($chy-primary, $lightness: -10%);
+
+$button-face-checked-active: color.adjust($chy-primary, $lightness: -5%);
+$button-face-checked: $chy-primary;
 
 $button-text: rgba(0, 0, 0, 0.8);
 $button-text-checked: rgba(255, 255, 255, 1);
 $button-z: 4px;
+
+$chy-border-radius: 3px;
+$chy-border-color: #d0c7b6;
+
+$chy-light-bg: #f7f3ed;
+$chy-dark-bg: #eae7e1;
+
+:root {
+    --primary: $chy-primary;
+    --button-face: $chy-button-face;
+    --button-border: $button-border; 
+    
+    --button-face-active: $button-face-active; 
+    --button-border-active: $button-border-active; 
+    --button-border-checked: $button-border-checked; 
+    
+    --button-face-checked-active: $button-face-checked-active; 
+    --button-face-checked: $button-face-checked; 
+    
+    --button-text: $button-text;
+    --button-text-checked: $button-text-checked;
+    --button-z: $button-z;
+  }

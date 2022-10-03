@@ -1,0 +1,47 @@
+@use  'sass:color';
+@import 'theme';
+
+.chy-section {
+
+    display: flex;
+    flex-direction: column;
+
+    border: 1px $chy-border-color solid;
+    box-shadow: inset 0px 10px 10px #00000020;
+    border-radius: $chy-border-radius;
+
+    >h3 {
+        // text-align: center;
+        margin: 0;
+        background: white;
+        
+        margin-top: -14px;
+        margin-left: 10px;
+        display: inline-block;
+        align-self:flex-start;
+        padding: 0 10px;
+        
+        border: 1px $chy-border-color solid;
+        // border-bottom: 0;
+    // box-shadow: inset 0px 10px 10px #00000020;
+        border-radius: $chy-border-radius;
+        // border-top-left-radius: 0;
+        // border-top-right-radius: 0;
+    }
+    .chy-section-content {
+        padding: 10px;
+    }
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    .chy-section-footer {
+        border: 1px $chy-border-color solid;
+        border-radius: $chy-border-radius;
+        margin: 0 -9px -9px -9px;
+        padding: 5px 10px;
+        background: $chy-light-bg;
+        // margin-bottom: -20px;
+    }
+}
+

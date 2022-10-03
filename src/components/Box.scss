@@ -1,0 +1,10 @@
+@import 'theme';
+
+.chy-box {
+    border-radius: $chy-border-radius;
+    background: $chy-light-bg;
+    border: 1px solid $chy-border-color;
+    text-align: left;
+    margin: 20px;
+    padding: 20px;
+}
