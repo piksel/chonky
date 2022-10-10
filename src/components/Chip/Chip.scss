@@ -1,5 +1,5 @@
 @use 'sass:color';
-@import '../theme';
+@import '../../theme';
 
 .chy-chip {
     border-radius: $chy-border-radius;
@@ -32,14 +32,6 @@
     &.chy-mod-pink {
         background: #e0188d;
     }
-
-    /*
-          <Button color="green">Green!</Button>
-          <Button color="danger">Danger!</Button>
-          <Button color="blue">Blue!</Button>
-          <Button color="orange">Orange!</Button>
-          <Button color="pink">Pink!</Button>
-    */
 
     &.chy-mod-rgb {
         background: linear-gradient(
