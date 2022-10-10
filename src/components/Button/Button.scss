@@ -1,3 +1,6 @@
+@use "sass:color";
+@import '../../_theme';
+
 @mixin colorized($color) {
   background-color: color.adjust($color, $lightness: -10%);
   label{
@@ -13,6 +16,7 @@
     }
   }
 }
+
 
 .chy-button {
     font-family: 'Roboto', sans-serif;
@@ -66,8 +70,8 @@
   
     &:active {
       background-color: $button-border-active;
-      padding-bottom: $button-z / 2;
-      margin-top: $button-z / 2;
+      padding-bottom: calc($button-z / 2);
+      margin-top: calc($button-z / 2);
       label {
         background-color: $button-face-active;
         border-color: $button-border-active;

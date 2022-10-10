@@ -1,16 +1,22 @@
+import { CommonProps } from '../../types';
+import './Button.scss'
+
 export type ButtonColor = 'primary' | 'success' | 'danger' | 'green' | 'blue' | 'orange' | 'pink';
-interface Props {
+export interface ButtonProps extends CommonProps {
   pressed?: boolean;
   primary?: boolean;
   color?: ButtonColor;
 }
-export const Button: React.FC<Props> = (props) => {
+
+const ButtonComponent: React.FC<ButtonProps> = (props) => {
   const color = props.color ?? (
     props.primary ? 'primary' : undefined
   );
     return (
-      <button className={`chy-button ${color ? 'chy-mod-' + color : ''}`}>
+      <button className={`chy-button ${color ? 'chy-mod-' + color : ''}`} style={props.style}>
         <label>{props.children}</label>
       </button>
     )
 }
+
+export const Button = ButtonComponent;

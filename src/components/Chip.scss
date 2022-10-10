@@ -1,5 +1,5 @@
 @use 'sass:color';
-@import 'theme';
+@import '../theme';
 
 .chy-chip {
     border-radius: $chy-border-radius;

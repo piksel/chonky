@@ -1,8 +1,8 @@
 @use "sass:color";
 
-@import "theme";
+@import '../../_theme';
 
-@import "Button";
+@import "../Button/Button";
 
 
 .chy-radiobuttons {

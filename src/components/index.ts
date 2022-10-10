@@ -1,6 +1,7 @@
-export * from './RadioButton'
-export * from './Button'
-export * from './Table'
-export * from './Box'
-export * from './Section'
+
+export * from './Box/Box';
+export * from './Button/Button';
+export * from './RadioButton/RadioButton';
+export * from './Section/Section';
+export * from './Table/Table';
 export * from './Chip'

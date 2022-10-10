@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.scss';
-import { Box, Button, Chip, ChipColor, Radio, Section, Table } from './components';
+import { Box, Button, Radio, Section, Table, Chip, ChipColor } from '../components';
 import { dummyTableDataCols, dummyTableData } from './dummyData';
 
 const typeColor = (type: string): ChipColor => {

@@ -1,0 +1,32 @@
+{
+  // "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["DOM"],
+    "outDir": "dist",
+    // "sourceMap": true,
+
+    "declaration": true,
+    "declarationDir": "types",
+   // "emitDeclarationOnly": true,
+    "noEmit": false,
+
+
+
+    "target": "es5",
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "paths": {
+   //   "../../*": ["./src/*"]
+    }
+  },
+  "include": [
+    "src/lib.ts",
+    "src/components"
+  ],
+}

@@ -1,13 +1,13 @@
 
 import React, { Dispatch, ReactElement, useContext, useState, useEffect, useRef } from 'react';
-import { StateTuple } from '../types';
+import { CommonProps, StateTuple } from '../../types';
 import './RadioButton.scss'
 
 interface RadioButtonsState { selected: string }
 type RadioButtonsContextValue =  StateTuple<RadioButtonsState>
 const RadioButtonsContext = React.createContext<RadioButtonsContextValue>([{selected: ""}, () => {}])
 
-interface RadioButtonCommonProps {
+interface RadioButtonCommonProps extends CommonProps {
   size?: 'small' | 'medium' | 'large'
 }
 
@@ -37,7 +37,7 @@ export const RadioButtons: React.FC<RadioButtonsProps> = (props) => {
 
   return (
     <RadioButtonsContext.Provider value={[state, setState]}>
-      <div className="chy-radiobuttons">
+      <div className="chy-radiobuttons" style={props.style}>
       {props.children.map(c => ({...c, props: {...c.props, ...commonProps }}) )}
       </div>
     </RadioButtonsContext.Provider>
@@ -54,7 +54,7 @@ export const RadioButton: RadioButtonType = (props) => {
 
   const btnChange = () => setState(s => s.selected === value ? s : {selected: value});
 
-  return (<div className={`chy-radiobutton${checked?' checked':''}${size?` chy-mod-${size}`:''}`}>
+  return (<div className={`chy-radiobutton${checked?' checked':''}${size?` chy-mod-${size}`:''}`} style={props.style}>
     <label>
       <input type="radio" checked={checked} onChange={() => btnChange()} />
       {props.children}

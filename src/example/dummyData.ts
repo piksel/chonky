@@ -1,4 +1,4 @@
-import { ButtonColor } from "./components/Button";
+import { ButtonColor } from "../components/Button";
 
 export const dummyTableDataCols: DummyTableDataCol[] = ['Name', 'Type', 'Status', 'Weight'];
 
