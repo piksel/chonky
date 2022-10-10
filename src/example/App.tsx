@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.scss';
-import { Box, Button, Radio, Section, Table, Chip, ChipColor } from '../components';
+import { Box, Button, Radio, Section, Table, Chip, ChipColor, TableRow } from '../components';
 import { dummyTableDataCols, dummyTableData } from './dummyData';
 
 const typeColor = (type: string): ChipColor => {
@@ -15,12 +15,8 @@ const typeColor = (type: string): ChipColor => {
 } 
 
 function App() {
-  const [selectedTableRow, setSelectedTableRow] = React.useState<string>();
   const [radioValue, setRadioValue] = React.useState<string>("");
   const [tableHint, setTableHint] = React.useState<string>("none");
-
-
-  const selectTableRow = (name?: string) => () => setSelectedTableRow(s => s === name ? undefined : name);
 
   return (
     <div className="App">
@@ -68,18 +64,11 @@ function App() {
             <summary>More party</summary>
               <br/>
               <div style={{overflowY: 'scroll', height: '200px'}}>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
-              <Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><Chip color='rgb'>PARTAY</Chip><br/>
+              {Array.from(Array(12), (_, i) => <div key={i}>
+                <Chip color='rgb'>PARTAY</Chip>
+                <Chip color='rgb'>PARTAY</Chip>
+                <Chip color='rgb'>PARTAY</Chip>
+              </div>)}
             </div>
           </details>
 
@@ -91,56 +80,32 @@ function App() {
 
         <Table columns={dummyTableDataCols}>
 
-          {tableHint === 'above' && (<>
-            <tr className={selectedTableRow === undefined ? 'chy-table-selected-row' : ''} />
-            <tr className={`chy-table-details-row`}>
-              <td colSpan={dummyTableDataCols.length}>
-                <div className='chy-table-details'>
-                  <b>Instructions:</b><br/>
-                  Select a Pokébowl to get started!
-                </div>
-              </td>
-            </tr>
-          </>)}
+          {tableHint === 'above' && (<TableRow name={undefined as any} details={<>
+            <b>Instructions:</b><br/>
+            Select a Pokébowl to get started!
+          </>} />)}
 
-          {dummyTableData.map(row => <React.Fragment key={row.Name}>
-            <tr className={selectedTableRow === row.Name ? 'chy-table-selected-row' : ''} onClick={selectTableRow(row.Name)}>
-              <td>{row.Name}</td>
-              <td>{row.Type.split('/').map(t => <Chip key={t} color={typeColor(t)}>{t}</Chip>)}</td>
-              <td>{row.Status}</td>
-              <td>{row.Weight}</td>
-            </tr>
-
-            <tr className={`chy-table-details-row`} onClick={selectTableRow()}>
-              <td colSpan={dummyTableDataCols.length}>
-                <div className='chy-table-details'>
-                  <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center'}}>
-                    <div style={{}}>
-                    <b>Description:</b><br />
-                {row.Description}
-                    </div>
-                    <div style={{float: 'right'}}><Button color={row.Color}>Use this starting pokébowl</Button></div>
+          {dummyTableData.map(row => <Table.Row key={row.Name} name={row.Name} details={(
+                <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center'}}>
+                  <div style={{}}>
+                  <b>Description:</b><br />
+              {row.Description}
                   </div>
-                
-
+                  <div style={{float: 'right'}}><Button color={row.Color}>Use this starting pokébowl</Button></div>
                 </div>
-                <div className='chy-table-details-shadow' />
-              </td>
-            </tr>
+          )}>
 
-          </React.Fragment>)}
+            {row.Name}
+            {row.Type.split('/').map(t => <Chip key={t} color={typeColor(t)}>{t}</Chip>)}
+            {row.Status}
+            {row.Weight}
 
-          {tableHint === 'beneath' && (<>
-            <tr className={selectedTableRow === undefined ? 'chy-table-selected-row' : ''} />
-            <tr className={`chy-table-details-row`}>
-              <td colSpan={dummyTableDataCols.length}>
-                <div className='chy-table-details'>
-                  <b>Instructions:</b><br/>
-                  Select a Pokébowl to get started!
-                </div>
-              </td>
-            </tr>
-          </>)}
+          </Table.Row>)}
+
+          {tableHint === 'beneath' && (<TableRow name={undefined as any} details={<>
+            <b>Instructions:</b><br/>
+            Select a Pokébowl to get started!
+          </>} />)}
 
         </Table>
         </div>

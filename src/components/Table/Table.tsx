@@ -1,7 +1,7 @@
 
 import { addClassNames } from '../../classNames';
-import { CommonProps, FCWithChildren } from '../../types';
-import React, { FunctionComponentElement, useContext, useState } from 'react';
+import { CommonProps } from '../../types';
+import React, { useContext, useState } from 'react';
 import './Table.scss'
 
 interface TableState {
@@ -64,11 +64,12 @@ export const TableRow: TableRowType = (props) => {
                 : <td>{children}</td>
             )}
         </tr>
-        <tr className={`chy-table-details-row`} onClick={table.selectRow()}>
+        <tr className={`chy-table-details-row`}>
             <td colSpan={table.cols}>
                 <div className='chy-table-details'>
                     {details}
                 </div>
+                <div className='chy-table-details-shadow' />
             </td>
         </tr>
     </>
