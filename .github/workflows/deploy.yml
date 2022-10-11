@@ -27,7 +27,7 @@ jobs:
     - run: git config --local user.name 'Github Actions'
     - run: git config --local user.email 'actions@github.com'
     - run: npm install
-    - run: npm run build
+    - run: npm run build-example
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.7
       with:
