@@ -25,7 +25,7 @@ export const Textbox: React.FC<TextboxProps> = (props) => {
 
     const {style, label, multiline, value, placeholder} = props;
 
-    const classNames = addClassNames(props.classNames, 'chy-textbox');
+    const classNames = addClassNames(props.classNames, 'cky-textbox');
 
     const commonProps = {placeholder, value, id: uid};
 

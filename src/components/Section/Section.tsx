@@ -12,13 +12,13 @@ const SectionBody: React.FC<SectionProps> = (props) => {
 
     const Wrapper =  props.collapsible ? ({children}: {children: React.ReactNode}) => <details open={open} >{children}</details> : React.Fragment;
 
-    return (<section className="chy-section" style={props.style}>
+    return (<section className="cky-section" style={props.style}>
         <Wrapper>
             {props.collapsible 
                 ? <summary><h3>{header}</h3></summary> 
                 : <h3>{header}</h3>
             }
-            <div className="chy-section-content">
+            <div className="cky-section-content">
             {children}
             </div>
         </Wrapper>
@@ -30,7 +30,7 @@ export interface SectionFooterProps extends CommonProps {
 }
 const SectionFooter: React.FC<SectionFooterProps> = (props) => {
     const {children} = props;
-    return (<div className='chy-section-footer'>{children}</div>)
+    return (<div className='cky-section-footer'>{children}</div>)
 }
 
 export const Section = SectionBody as (React.FC<SectionProps> & {Footer: React.FC<SectionFooterProps>});

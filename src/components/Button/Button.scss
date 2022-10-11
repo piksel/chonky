@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "sass:color";
 @use '../../_theme';
 
@@ -18,7 +19,7 @@
 // }
 
 
-.chy-button {
+.cky-button {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     font-size: 16px;
@@ -35,34 +36,37 @@
       transition-duration: 200ms;
     }
   
-    &.chy-mod-small {
+    &.cky-mod-small {
         font-size: 12px;
     }
   
   
-    // &.chy-mod-primary {
-    //   @include colorized(theme.$primary);
-    // }
+    @each $name, $color in theme.$colors {
+      &.cky-mod-#{$name} {
+          background-color: var(--#{$name}-600);
+          label{
+              color: var(--button-text-colorized);
+              text-shadow: 0px -1px 0 #00000040;
+              background-color: var(--#{$name}-400);
+              border-color: var(--#{$name}-600);
 
-    // &.chy-mod-green {
-    //   @include colorized(#359735);
-    // }
+          }
+          &:active {
+              background-color: var(--#{$name}-700);
+              label {
+                  background-color: var(--#{$name}-500);
+                  border-color: var(--#{$name}-700);
+              }
+          }
+      }
 
-    // &.chy-mod-danger {
-    //   @include colorized(#d32020);
-    // }
-
-    // &.chy-mod-blue {
-    //   @include colorized(#146ed4);
-    // }
-
-    // &.chy-mod-orange {
-    //   @include colorized(#e77415);
-    // }
-
-    // &.chy-mod-pink {
-    //   @include colorized(#e0188d);
-    // }
+      $alias: map.get(theme.$color_aliases, $name);
+      @if $alias {
+          &.cky-mod-#{$alias} {
+              @extend .cky-mod-#{$name};
+          }
+      }
+  }
 
 
   
@@ -79,6 +83,7 @@
     }
   
     label {
+      text-shadow: 0px 1px #ffffff80;
       transition-property: background, border-color;
       border-radius: 3px;
       background: theme.$button-face;
@@ -97,6 +102,6 @@
     }
   }
 
-  .chy-button + .chy-button {
+  .cky-button + .cky-button {
     margin-left: 4px
   }

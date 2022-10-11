@@ -1,7 +1,7 @@
 @use "sass:color";
 @use '../../_theme';
 
-table.chy-table {
+table.cky-table {
 
     border: 1px solid theme.$border-color;
     margin: 20px;
@@ -27,14 +27,14 @@ table.chy-table {
         border-radius: 0 0 3px 3px;
     }
 
-    // tr:not(:last-child, .chy-table-selected-row) {
-    tr:not(:last-child, :nth-last-child(2)), tr.chy-table-selected-row:nth-last-child(2) {
+    // tr:not(:last-child, .cky-table-selected-row) {
+    tr:not(:last-child, :nth-last-child(2)), tr.cky-table-selected-row:nth-last-child(2) {
         td {
             border-bottom: 1px solid theme.$border-color;
         }
     }
 
-    tbody tr:last-child, tbody tr:nth-last-child(2):not(.chy-table-selected-row) {
+    tbody tr:last-child, tbody tr:nth-last-child(2):not(.cky-table-selected-row) {
         border-radius: 0 0 3px 3px;
         td:first-child {
             border-radius: 0 0 0 3px;
@@ -44,7 +44,7 @@ table.chy-table {
         }
     }
 
-    tr.chy-table-selected-row {
+    tr.cky-table-selected-row {
         // background: theme.$primary;
         background: color.adjust(theme.$button-face, $lightness: -5%);
         td {
@@ -64,7 +64,7 @@ table.chy-table {
         // z-index: 2;
     }
 
-    tr.chy-table-details-row {
+    tr.cky-table-details-row {
         $toggle-duration: 0.2s;
         // $toggle-function: cubic-bezier(0.68, -0.55, 0.27, 1.55); 
         $toggle-function: cubic-bezier(0.45, 0.05, 0.55, 0.95);
@@ -83,7 +83,7 @@ table.chy-table {
             transition: padding-bottom $toggle-duration $toggle-function;
             position: relative;
 
-            .chy-table-details {
+            .cky-table-details {
                 border: 1px solid theme.$border-color;
                 border-top: 0;
                 border-radius: 0 0 3px 3px;
@@ -97,7 +97,7 @@ table.chy-table {
                 
             }
 
-            .chy-table-details-shadow {
+            .cky-table-details-shadow {
                 position: absolute;
                 box-shadow: inset 0px 6px 10px #00000030;
                 height: 100%;
@@ -109,10 +109,10 @@ table.chy-table {
         }
     }
 
-    tr.chy-table-selected-row + tr.chy-table-details-row {
+    tr.cky-table-selected-row + tr.cky-table-details-row {
         td {
             padding-bottom: 5px;
-            .chy-table-details {
+            .cky-table-details {
                 height: auto;
                 margin-top: 0px;
             }

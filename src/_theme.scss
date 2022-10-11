@@ -45,10 +45,11 @@ $code-font: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 
 $colors: (
   "primary": $primary,
-  "success": #359735,
-  "danger": #d32020,
+  "green": #359735,
+  "red": #d32020,
   "blue": #146ed4,
   "orange": #e77415,
+  "yellow": #e77415,
   "pink": #e0188d,
 );
 
@@ -66,5 +67,31 @@ $color_shades: ();
   ));
 }
 
-@debug $color_shades;
+$color_aliases: (
+   "green": "success",
+   "red": "danger",
+   "yellow": "warning",
+);
 
+
+
+$font-xxs: 8px;
+$height-xxs: 16px;
+
+$font-xs: 11px;
+$height-xs: 20px;
+
+$font-sm: 12px;
+$height-sm: 24px;
+
+$font-md: 13px;
+$height-md: 28px;
+
+$font-lg: 15px;
+$height-lg: 36px;
+
+$font-xl: 18px;
+$height-xl: 44px;
+
+$font-xxl: 23px;
+$height-xxl: 52px;

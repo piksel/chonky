@@ -1,3 +1,4 @@
+import { addClassNames } from '../../classNames';
 import { CommonProps } from '../../types';
 import './Button.scss'
 
@@ -12,8 +13,11 @@ const ButtonComponent: React.FC<ButtonProps> = (props) => {
   const color = props.color ?? (
     props.primary ? 'primary' : undefined
   );
+
+  const className = addClassNames(props.classNames, 'cky-button', color && `cky-mod-${color}`);
+
     return (
-      <button className={`chy-button ${color ? 'chy-mod-btn-' + color : ''}`} style={props.style}>
+      <button className={className} style={props.style}>
         <label>{props.children}</label>
       </button>
     )

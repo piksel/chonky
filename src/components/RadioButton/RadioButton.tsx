@@ -1,5 +1,6 @@
 
 import React, { Dispatch, ReactElement, useContext, useState, useEffect, useRef } from 'react';
+import { classNames } from '../../classNames';
 import { CommonProps, StateTuple } from '../../types';
 import './RadioButton.scss'
 
@@ -37,7 +38,7 @@ export const RadioButtons: React.FC<RadioButtonsProps> = (props) => {
 
   return (
     <RadioButtonsContext.Provider value={[state, setState]}>
-      <div className="chy-radiobuttons" style={props.style}>
+      <div className="cky-radiobuttons" style={props.style}>
       {props.children.map(c => ({...c, props: {...c.props, ...commonProps }}) )}
       </div>
     </RadioButtonsContext.Provider>
@@ -54,7 +55,13 @@ export const RadioButton: RadioButtonType = (props) => {
 
   const btnChange = () => setState(s => s.selected === value ? s : {selected: value});
 
-  return (<div className={`chy-radiobutton${checked?' checked':''}${size?` chy-mod-${size}`:''}`} style={props.style}>
+  const className = classNames(
+    'cky-button',
+    checked && 'checked', 
+    size && `cky-mod-${size}`
+  );
+
+  return (<div className={className} style={props.style}>
     <label>
       <input type="radio" checked={checked} onChange={() => btnChange()} />
       {props.children}

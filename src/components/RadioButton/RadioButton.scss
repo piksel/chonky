@@ -4,17 +4,17 @@
 @use "../Button/Button";
 
 
-.chy-radiobuttons {
+.cky-radiobuttons {
   
   display: flex;
   flex-direction: row;
   padding: 10px 0;
 
-  .chy-radiobutton {
-    @extend .chy-button;
+  .cky-button {
+    // @extend .cky-button;
     position:relative;
 
-    + .chy-radiobutton {
+    + .cky-button {
       margin-left: 0;
     }
 

@@ -22,7 +22,7 @@ const TableComponent: React.FC<TableProps> = (props) => {
     const {columns, children} = props;
 
     const [tableState, setTableState] = useState<TableState>({cols: columns.length})
-    const classNames = addClassNames(props.classNames, `chy-table`);
+    const classNames = addClassNames(props.classNames, `cky-table`);
     const selectRow = (name?: string) => () => setTableState(s => ({ 
         ...s, 
         selectedRow: (name !== s.selectedRow ? name : undefined) 
@@ -54,7 +54,7 @@ export const TableRow: TableRowType = (props) => {
     const {name, children, details} = props;
     const table = useContext(TableContext);
     const selected = table.selectedRow === name;
-    const classNames = addClassNames(props.classNames, selected && 'chy-table-selected-row');
+    const classNames = addClassNames(props.classNames, selected && 'cky-table-selected-row');
 
     return <><tr className={classNames} style={props.style} onClick={table.selectRow(name)}>
             {( Array.isArray(children) 
@@ -62,12 +62,12 @@ export const TableRow: TableRowType = (props) => {
                 : <td>{children}</td>
             )}
         </tr>
-        <tr className={`chy-table-details-row`}>
+        <tr className={`cky-table-details-row`}>
             <td colSpan={table.cols}>
-                <div className='chy-table-details'>
+                <div className='cky-table-details'>
                     {details}
                 </div>
-                <div className='chy-table-details-shadow' />
+                <div className='cky-table-details-shadow' />
             </td>
         </tr>
     </>

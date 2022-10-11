@@ -1,7 +1,7 @@
 @use  'sass:color';
 @use '../../_theme';
 
-.chy-section {
+.cky-section {
 
     display: flex;
     flex-direction: column;
@@ -10,12 +10,11 @@
     box-shadow: inset 0px 10px 10px #00000020;
     border-radius: theme.$border-radius;
 
-    > h3::before, details[open] > summary > h3::before {
+    > h3::before, details > summary > h3::before {
         content: ' ';
         display: inline-block;
         width: 4px;
-        background: theme.$primary;
-        border: 1px color.adjust(theme.$primary, $lightness: -20%) solid;
+        border: 1px transparent solid;
         height: 1em;
         margin-right: 5px;
         margin-left: -8px;
@@ -24,43 +23,39 @@
         border-radius: 2px 0 0 2px;
     }
 
+    > h3::before, details[open] > summary > h3::before {
+        background: var(--primary-500);
+        border-color: var(--primary-300);
+    }
+
     > details > summary > h3::before {
-        content: ' ';
-        display: inline-block;
-        width: 4px;
         background: theme.$light-bg; // theme.$primary;
-        border: 1px theme.$border-color solid;
-        height: 1em;
-        margin-right: 5px;
-        margin-left: -8px;
-        vertical-align: top;
-        margin-top: 1px;
-        border-radius: 2px 0 0 2px;
+        border-color: theme.$border-color;
     }
     
     > details {
         display: block;
         margin-top: -10px;
         margin-bottom: 0px;
+
+        > summary {
+            list-style: none;
+
+            h3 {
+                border-bottom-width: 0;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
     }
 
-    details > summary {
-        list-style: none;
-    }
-
-    details > summary > h3 {
-        border-bottom-width: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-
-    details[open] > summary > h3 {
+    > details[open] > summary > h3 {
         border-bottom-width: 2px;
         border-bottom-left-radius: 2px;
         border-bottom-right-radius: 2px;
     }
     
-    >h3, summary > h3 {
+    > h3, summary > h3 {
         // text-align: center;
         margin: 0;
         background: white;
@@ -84,14 +79,14 @@
         // border-color: #1056a5;
         text-orientation: upright;
     }
-    .chy-section-content {
+    .cky-section-content {
         padding: 10px;
     }
 
     margin-top: 20px;
     margin-bottom: 30px;
 
-    .chy-section-footer {
+    .cky-section-footer {
         border: 1px theme.$border-color solid;
         border-radius: theme.$border-radius;
         margin: 0 -9px -9px -9px;

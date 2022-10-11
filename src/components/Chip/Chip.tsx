@@ -16,9 +16,9 @@ interface Props {
 export const Chip: React.FC<Props> = (props) => {
 
     const classNames = [
-        'chy-chip',
-        ...(props.right ? ['chy-mod-right'] : []),
-        `chy-mod-${props.color}`
+        'cky-chip',
+        ...(props.right ? ['cky-mod-right'] : []),
+        `cky-mod-${props.color}`
     ];
 
     return (
