@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Box, Chip, Section } from "../components";
+import { Box, Section } from "../components";
 import {ColorAliases, ColorValues} from "../colors";
 
 const levels = [

@@ -1,6 +1,5 @@
 import { ColorValues, SpecialColors } from "../colors";
 import { Button, ButtonColor, Section } from "../components";
-import { colors, specialColors } from "./dummyData";
 
 export const ButtonsExample = ({open}: {open?: boolean}) => (
     <Section collapsible open={open} header="Buttons">
