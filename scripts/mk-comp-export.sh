@@ -12,6 +12,6 @@ for c in src/components/*; do
     echo "export * from './$comp/$comp';" >> "./src/components/index.ts"
     echo -en "\e[92mts\e[0m, "
 
-    echo "@import './components/$comp/$comp';" >> "./src/components/index.scss"
+    echo "@import './$comp/$comp';" >> "./src/components/index.scss"
     echo -e "\e[92mscss\e[0m "
 done

@@ -27,6 +27,7 @@
   },
   "include": [
     "src/lib.ts",
+    "src/types.ts",
     "src/components"
   ],
 }

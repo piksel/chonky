@@ -1,0 +1,27 @@
+
+@use 'theme';
+
+@each $name, $color in theme.$colors {
+    .cky-mod-btn-#{$name} {
+        background-color: var(--#{$name}-600);
+        label{
+            color: var(--button-text-colorized);
+            background-color: var(--#{$name}-400);
+            border-color: var(--#{$name}-600);
+        }
+        &:active {
+            background-color: var(--#{$name}-700);
+            label {
+                background-color: var(--#{$name}-500);
+                border-color: var(--#{$name}-700);
+            }
+        }
+    }
+}
+
+@each $name, $color in theme.$colors {
+    .cky-mod-#{$name} {
+        background-color: var(--#{$name}-600);
+        color: var(--button-text-colorized);
+    }
+}

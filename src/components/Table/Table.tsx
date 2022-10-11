@@ -49,8 +49,6 @@ interface TableRowProps extends CommonProps {
     details?: React.ReactNode
 }
 type TableRowType = React.FC<TableRowProps>;
-// type TableRowType = FCWithChildren<TableRowProps, React.ReactNode[]>;
-// type TableRowType = React.FC<TableRowProps> & {children: Iterable<React.ReactNode>}
 export const TableRow: TableRowType = (props) => {
 
     const {name, children, details} = props;

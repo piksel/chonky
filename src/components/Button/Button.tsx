@@ -13,7 +13,7 @@ const ButtonComponent: React.FC<ButtonProps> = (props) => {
     props.primary ? 'primary' : undefined
   );
     return (
-      <button className={`chy-button ${color ? 'chy-mod-' + color : ''}`} style={props.style}>
+      <button className={`chy-button ${color ? 'chy-mod-btn-' + color : ''}`} style={props.style}>
         <label>{props.children}</label>
       </button>
     )

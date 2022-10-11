@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './App.scss';
-import { Box, Button, Radio, Section, Table, Chip, ChipColor, TableRow } from '../components';
+import { Box, Button, Radio, Section, Table, Chip, ChipColor, TableRow, Textbox } from '../components';
 import { dummyTableDataCols, dummyTableData } from './dummyData';
 
 const typeColor = (type: string): ChipColor => {
@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
 
-      <Section header="Buttons">
+      <Section collapsible open header="Buttons">
 
         <div style={{padding: '15px'}}>
           <Button primary>Primary</Button>
@@ -34,7 +34,7 @@ function App() {
         </div>
       </Section>
 
-      <Section header="Radio Buttons">
+      <Section collapsible header="Radio Buttons">
       <Box style={{maxWidth: '400px'}}>
         <h3>Very important questions</h3>
         <label>How do you feel about cookies?</label>
@@ -48,7 +48,16 @@ function App() {
       </Box>
       </Section>
 
-      <Section header="Chips">
+      <Section collapsible header="Textboxes">
+      <Box style={{maxWidth: '400px'}}>
+
+        <Textbox label="What is your dream horse?" placeholder='pink' />
+        <Textbox multiline label="Why not?" value="you're not my real mom" />
+
+      </Box>
+      </Section>
+
+      <Section collapsible open header="Chips">
       <div style={{padding: '15px'}}>
         <Chip color='primary'>Dill</Chip>
         <Chip color="green">Green!</Chip>
@@ -75,7 +84,7 @@ function App() {
         </Box>
       </Section>
 
-      <Section header="Table">
+      <Section collapsible open header="Table">
         <div style={{minHeight: '300px'}}>
 
         <Table columns={dummyTableDataCols}>

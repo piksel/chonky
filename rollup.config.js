@@ -3,8 +3,8 @@ import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import external from 'rollup-plugin-peer-deps-external';
-// import sass from 'rollup-plugin-sass';
-import sass from 'sass';
+import sass from 'rollup-plugin-sass';
+// import sass from 'sass';
 import postcss from 'rollup-plugin-postcss';
 import dts from 'rollup-plugin-dts';
 
@@ -26,16 +26,17 @@ const config = [
                 file: packageJson.module,
                 format: 'esm',
                 sourcemap: true
-            }
+            },
         ],
         plugins: [
             external(),
             resolve(),
             commonjs(),
             typescript({ tsconfig: './tsconfig.lib.json' }),
-            postcss({
-                preprocessor: (content, id) => new Promise(r => r({ code: sass.compileString(content) }))
-            }),
+            // postcss({
+            //     preprocessor: (content, id) => new Promise(r => r({ code: sass.compileString(content) })),
+            // }),
+            sass(),
             // sass({
             //     processor: css => postcss().transform.process(css).then(r => r.css),
             // }),
@@ -43,7 +44,7 @@ const config = [
         ],
     },
     {
-        input: 'dist/esm/index.d.ts',
+        input: 'dist/esm/lib.d.ts',
         output: [{ file: 'dist/index.d.ts', format: "esm" }],
         external: [/\.s?css$/],
         plugins: [dts()],

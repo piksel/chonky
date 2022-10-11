@@ -1,7 +1,7 @@
 import { CommonProps } from "../../types";
 import React from "react";
 
-// import './Box.scss'
+import './Box.scss'
 
 export interface BoxProps extends CommonProps {
 

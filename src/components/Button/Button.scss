@@ -1,21 +1,21 @@
 @use "sass:color";
-@import '../../_theme';
+@use '../../_theme';
 
-@mixin colorized($color) {
-  background-color: color.adjust($color, $lightness: -10%);
-  label{
-    color: $button-text-colorized;
-    background-color: $color;
-    border-color: color.adjust($color, $lightness: -10%);
-  }
-  &:active {
-    background-color: color.adjust($color, $lightness: -20%);
-    label {
-      background-color: color.adjust($color, $lightness: -5%);
-      border-color: color.adjust($color, $lightness: -20%);
-    }
-  }
-}
+// @mixin colorized($color) {
+//   background-color: color.adjust($color, $lightness: -10%);
+//   label{
+//     color: theme.$button-text-colorized;
+//     background-color: $color;
+//     border-color: color.adjust($color, $lightness: -10%);
+//   }
+//   &:active {
+//     background-color: color.adjust($color, $lightness: -20%);
+//     label {
+//       background-color: color.adjust($color, $lightness: -5%);
+//       border-color: color.adjust($color, $lightness: -20%);
+//     }
+//   }
+// }
 
 
 .chy-button {
@@ -25,8 +25,8 @@
   
     border:0;
     border-radius: 3px;
-    padding: 0 0 $button-z 0;
-    background: $button-border;
+    padding: 0 0 theme.$button-z 0;
+    background: theme.$button-border;
     transition-property: padding, margin, background;
     vertical-align: top;
   
@@ -40,50 +40,50 @@
     }
   
   
-    &.chy-mod-primary {
-      @include colorized($chy-primary);
-    }
+    // &.chy-mod-primary {
+    //   @include colorized(theme.$primary);
+    // }
 
-    &.chy-mod-green {
-      @include colorized(#359735);
-    }
+    // &.chy-mod-green {
+    //   @include colorized(#359735);
+    // }
 
-    &.chy-mod-danger {
-      @include colorized(#d32020);
-    }
+    // &.chy-mod-danger {
+    //   @include colorized(#d32020);
+    // }
 
-    &.chy-mod-blue {
-      @include colorized(#146ed4);
-    }
+    // &.chy-mod-blue {
+    //   @include colorized(#146ed4);
+    // }
 
-    &.chy-mod-orange {
-      @include colorized(#e77415);
-    }
+    // &.chy-mod-orange {
+    //   @include colorized(#e77415);
+    // }
 
-    &.chy-mod-pink {
-      @include colorized(#e0188d);
-    }
+    // &.chy-mod-pink {
+    //   @include colorized(#e0188d);
+    // }
 
 
   
     
   
     &:active {
-      background-color: $button-border-active;
-      padding-bottom: calc($button-z / 2);
-      margin-top: calc($button-z / 2);
+      background-color: theme.$button-border-active;
+      padding-bottom: calc(theme.$button-z / 2);
+      margin-top: calc(theme.$button-z / 2);
       label {
-        background-color: $button-face-active;
-        border-color: $button-border-active;
+        background-color: theme.$button-face-active;
+        border-color: theme.$button-border-active;
       }
     }
   
     label {
       transition-property: background, border-color;
       border-radius: 3px;
-      background: $chy-button-face;
-      border: 1px solid $button-border;
-      color: $button-text;
+      background: theme.$button-face;
+      border: 1px solid theme.$button-border;
+      color: theme.$button-text;
       padding: 0.25em 1em;
   
       display: block;

@@ -1,0 +1,33 @@
+@use "sass:color";
+@use '../../theme';
+
+.chy-textbox {
+    display: flex;
+    flex-direction: column;
+
+    label {
+        display: block;
+        font-weight: 300;
+        font-size: 18px;
+    }
+
+    input, textarea {
+        margin: 4px 0;
+        border-radius: theme.$border-radius;
+        border: 1px theme.$border-color solid;
+        border-top-width: 2px;
+        box-shadow: inset 0px 2px 5px #00000020;
+        padding: 3px 6px;
+        font-size: 16px;
+
+        &:not(.cky-mod-code) {
+            font-family: theme.$default-font;
+        }
+
+        &.cky-mod-code {
+            font-family: theme.$code-font;
+        }
+    }
+
+    margin-bottom: 10px;
+}

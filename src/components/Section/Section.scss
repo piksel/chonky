@@ -1,16 +1,66 @@
 @use  'sass:color';
-@import '../../_theme';
+@use '../../_theme';
 
 .chy-section {
 
     display: flex;
     flex-direction: column;
 
-    border: 1px $chy-border-color solid;
+    border: 1px theme.$border-color solid;
     box-shadow: inset 0px 10px 10px #00000020;
-    border-radius: $chy-border-radius;
+    border-radius: theme.$border-radius;
 
-    >h3 {
+    > h3::before, details[open] > summary > h3::before {
+        content: ' ';
+        display: inline-block;
+        width: 4px;
+        background: theme.$primary;
+        border: 1px color.adjust(theme.$primary, $lightness: -20%) solid;
+        height: 1em;
+        margin-right: 5px;
+        margin-left: -8px;
+        vertical-align: top;
+        margin-top: 1px;
+        border-radius: 2px 0 0 2px;
+    }
+
+    > details > summary > h3::before {
+        content: ' ';
+        display: inline-block;
+        width: 4px;
+        background: theme.$light-bg; // theme.$primary;
+        border: 1px theme.$border-color solid;
+        height: 1em;
+        margin-right: 5px;
+        margin-left: -8px;
+        vertical-align: top;
+        margin-top: 1px;
+        border-radius: 2px 0 0 2px;
+    }
+    
+    > details {
+        display: block;
+        margin-top: -10px;
+        margin-bottom: 0px;
+    }
+
+    details > summary {
+        list-style: none;
+    }
+
+    details > summary > h3 {
+        border-bottom-width: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    details[open] > summary > h3 {
+        border-bottom-width: 2px;
+        border-bottom-left-radius: 2px;
+        border-bottom-right-radius: 2px;
+    }
+    
+    >h3, summary > h3 {
         // text-align: center;
         margin: 0;
         background: white;
@@ -21,12 +71,18 @@
         align-self:flex-start;
         padding: 0 10px;
         
-        border: 1px $chy-border-color solid;
+        border: 1px theme.$border-color solid;
         // border-bottom: 0;
-    // box-shadow: inset 0px 10px 10px #00000020;
-        border-radius: $chy-border-radius;
+        // box-shadow: inset 0px 10px 10px #00000020;
+        border-radius: theme.$border-radius;
+        border-bottom-width: 2px;
         // border-top-left-radius: 0;
         // border-top-right-radius: 0;
+
+        // background: #146ed4;
+        // color: white;
+        // border-color: #1056a5;
+        text-orientation: upright;
     }
     .chy-section-content {
         padding: 10px;
@@ -36,11 +92,11 @@
     margin-bottom: 30px;
 
     .chy-section-footer {
-        border: 1px $chy-border-color solid;
-        border-radius: $chy-border-radius;
+        border: 1px theme.$border-color solid;
+        border-radius: theme.$border-radius;
         margin: 0 -9px -9px -9px;
         padding: 5px 10px;
-        background: $chy-light-bg;
+        background: theme.$light-bg;
         // margin-bottom: -20px;
     }
 }

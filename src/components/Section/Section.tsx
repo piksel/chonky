@@ -1,18 +1,27 @@
 
+import React from 'react';
 import { CommonProps } from '../../types';
 import './Section.scss'
-
 export interface SectionProps extends CommonProps {
     header?: string;
+    collapsible?: boolean;
+    open?: boolean;
 }
 const SectionBody: React.FC<SectionProps> = (props) => {
-    const {children, header} = props;
+    const {children, header, open} = props;
+
+    const Wrapper =  props.collapsible ? ({children}: {children: React.ReactNode}) => <details open={open} >{children}</details> : React.Fragment;
 
     return (<section className="chy-section" style={props.style}>
-        <h3>{header}</h3>
-        <div className="chy-section-content">
-        {children}
-        </div>
+        <Wrapper>
+            {props.collapsible 
+                ? <summary><h3>{header}</h3></summary> 
+                : <h3>{header}</h3>
+            }
+            <div className="chy-section-content">
+            {children}
+            </div>
+        </Wrapper>
     </section>)
 }
 

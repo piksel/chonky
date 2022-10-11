@@ -1,12 +1,11 @@
 @use "sass:color";
-
-@import '../../_theme';
+@use '../../_theme';
 
 table.chy-table {
 
-    border: 1px solid $chy-border-color;
+    border: 1px solid theme.$border-color;
     margin: 20px;
-    border-radius: $chy-border-radius;
+    border-radius: theme.$border-radius;
     //padding: 10px;
     background: #eae7e1; 
     width: calc(100% - 40px);
@@ -18,7 +17,7 @@ table.chy-table {
         background: #eae7e1;
         padding-top: 10px;
         padding-bottom: 10px;
-        border-bottom: 1px solid $chy-border-color;
+        border-bottom: 1px solid theme.$border-color;
         text-align: left;
         border-radius: 3px 3px 0 0;
     }
@@ -31,7 +30,7 @@ table.chy-table {
     // tr:not(:last-child, .chy-table-selected-row) {
     tr:not(:last-child, :nth-last-child(2)), tr.chy-table-selected-row:nth-last-child(2) {
         td {
-            border-bottom: 1px solid $chy-border-color;
+            border-bottom: 1px solid theme.$border-color;
         }
     }
 
@@ -46,15 +45,15 @@ table.chy-table {
     }
 
     tr.chy-table-selected-row {
-        // background: $chy-primary;
-        background: color.adjust($chy-button-face, $lightness: -5%);
+        // background: theme.$primary;
+        background: color.adjust(theme.$button-face, $lightness: -5%);
         td {
             border-top: 1px transparent solid;
             // border-top: 1px color.adjust($button-border-checked, $lightness: 5) solid;
         }
         // color: white;
         &:hover {
-            background: color.adjust($chy-button-face, $lightness: -3%);
+            background: color.adjust(theme.$button-face, $lightness: -3%);
         }
     }
 
@@ -73,7 +72,7 @@ table.chy-table {
             cursor: unset;
             border: 0;
             // z-index: 1;
-            background: $chy-dark-bg;
+            background: theme.$dark-bg;
             box-shadow: inset 0px -2px 10px #00000030;
             padding-left: 5px;
             padding-right: 5px;
@@ -85,10 +84,10 @@ table.chy-table {
             position: relative;
 
             .chy-table-details {
-                border: 1px solid $chy-border-color;
+                border: 1px solid theme.$border-color;
                 border-top: 0;
                 border-radius: 0 0 3px 3px;
-                background: $chy-light-bg;
+                background: theme.$light-bg;
                 padding: 10px 15px;
                 overflow: hidden;
                 // height: 0;
@@ -122,7 +121,7 @@ table.chy-table {
 
     tr {
         &:hover {
-            background: color.adjust($chy-button-face, $lightness: 5%);
+            background: color.adjust(theme.$button-face, $lightness: 5%);
         }
         >:first-child {
             padding-left: 20px;

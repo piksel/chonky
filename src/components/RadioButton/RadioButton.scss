@@ -1,8 +1,7 @@
 @use "sass:color";
 
-@import '../../_theme';
-
-@import "../Button/Button";
+@use '../../_theme';
+@use "../Button/Button";
 
 
 .chy-radiobuttons {
@@ -30,25 +29,25 @@
  
     &.checked {
       padding-bottom: 1px;
-      margin-top: $button-z - 1px;
-      color: $button-text-checked;
-      background-color: $button-border-checked;
+      margin-top: theme.$button-z - 1px;
+      color: theme.$button-text-checked;
+      background-color: theme.$button-border-checked;
       cursor: default;
   
       label {
-        color: $button-text-checked;
-        border-color: $button-border-checked;
-        background: $button-face-checked;
+        color: theme.$button-text-checked;
+        border-color: theme.$button-border-checked;
+        background: theme.$button-face-checked;
       }
   
       &:active {
-        background-color: $button-border-checked;
+        background-color: theme.$button-border-checked;
         padding-bottom: 0;
-        margin-top: $button-z;
+        margin-top: theme.$button-z;
   
         label {
-          border-color: $button-border-checked;
-          background: $button-face-checked-active;
+          border-color: theme.$button-border-checked;
+          background: theme.$button-face-checked-active;
         }
       }
     }

@@ -1,37 +1,44 @@
 @use 'sass:color';
-@import '../../theme';
+@use '../../theme';
 
 .chy-chip {
-    border-radius: $chy-border-radius;
+    border-radius: theme.$border-radius;
     font-size: 12px;
 
     $lightness: 50%;
     $saturation: 50%;
     $step: 36;
 
-    &.chy-mod-primary {
-        background: $chy-primary;
-    }
 
-    &.chy-mod-green {
-        background: #359735;
-    }
+    @each $name, $color in theme.$colors {
+        .chy-mod-#{$name} {
+            background: $color;
+        }
+      }
+
+    // &.chy-mod-primary {
+    //     background: theme.$primary;
+    // }
+
+    // &.chy-mod-green {
+    //     background: #359735;
+    // }
   
-    &.chy-mod-danger {
-        background: #d32020;
-    }
+    // &.chy-mod-danger {
+    //     background: #d32020;
+    // }
 
-    &.chy-mod-blue {
-        background: #146ed4;
-    }
+    // &.chy-mod-blue {
+    //     background: #146ed4;
+    // }
 
-    &.chy-mod-orange {
-        background: #e77415;
-    }
+    // &.chy-mod-orange {
+    //     background: #e77415;
+    // }
 
-    &.chy-mod-pink {
-        background: #e0188d;
-    }
+    // &.chy-mod-pink {
+    //     background: #e0188d;
+    // }
 
     &.chy-mod-rgb {
         background: linear-gradient(
