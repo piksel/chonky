@@ -1,14 +1,10 @@
 
+import { ColorValue } from '../../colors';
 import './Chip.scss';
 
 export type ChipColor 
-    = 'primary' 
-    | 'rgb' 
-    | 'green' 
-    | 'danger' 
-    | 'blue' 
-    | 'orange' 
-    | 'pink';
+    = ColorValue
+    | 'rgb';
 interface Props {
     right?: boolean, 
     color: ChipColor,

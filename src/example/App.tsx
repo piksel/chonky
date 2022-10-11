@@ -3,6 +3,9 @@ import React from 'react';
 import './App.scss';
 import { Box, Button, Radio, Section, Table, Chip, ChipColor, TableRow, Textbox } from '../components';
 import { dummyTableDataCols, dummyTableData } from './dummyData';
+import { ChipsExample } from './ChipsExample';
+import { ColorsExample } from './ColorsExample';
+import { ButtonsExample } from './ButtonsExample';
 
 const typeColor = (type: string): ChipColor => {
   switch(type) {
@@ -21,18 +24,7 @@ function App() {
   return (
     <div className="App">
 
-      <Section collapsible open header="Buttons">
-
-        <div style={{padding: '15px'}}>
-          <Button primary>Primary</Button>
-          <Button>Not as important</Button>
-          <Button color="green">Green!</Button>
-          <Button color="danger">Danger!</Button>
-          <Button color="blue">Blue!</Button>
-          <Button color="orange">Orange!</Button>
-          <Button color="pink">Pink!</Button>
-        </div>
-      </Section>
+      <ButtonsExample />
 
       <Section collapsible header="Radio Buttons">
       <Box style={{maxWidth: '400px'}}>
@@ -57,32 +49,8 @@ function App() {
       </Box>
       </Section>
 
-      <Section collapsible open header="Chips">
-      <div style={{padding: '15px'}}>
-        <Chip color='primary'>Dill</Chip>
-        <Chip color="green">Green!</Chip>
-        <Chip color="danger">Danger!</Chip>
-        <Chip color="blue">Blue!</Chip>
-        <Chip color="orange">Orange!</Chip>
-        <Chip color="pink">Pink!</Chip>
-        <Chip color='rgb'>PARTAY</Chip>
-      </div>
-
-        <Box>
-          <details>
-            <summary>More party</summary>
-              <br/>
-              <div style={{overflowY: 'scroll', height: '200px'}}>
-              {Array.from(Array(12), (_, i) => <div key={i}>
-                <Chip color='rgb'>PARTAY</Chip>
-                <Chip color='rgb'>PARTAY</Chip>
-                <Chip color='rgb'>PARTAY</Chip>
-              </div>)}
-            </div>
-          </details>
-
-        </Box>
-      </Section>
+      <ChipsExample />
+      <ColorsExample />
 
       <Section collapsible open header="Table">
         <div style={{minHeight: '300px'}}>

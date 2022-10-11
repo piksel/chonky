@@ -43,19 +43,19 @@
   
     @each $name, $color in theme.$colors {
       &.cky-mod-#{$name} {
-          background-color: var(--#{$name}-600);
+          background-color: var(--#{$name}-700);
           label{
               color: var(--button-text-colorized);
               text-shadow: 0px -1px 0 #00000040;
-              background-color: var(--#{$name}-400);
-              border-color: var(--#{$name}-600);
+              background-color: var(--#{$name}-500);
+              border-color: var(--#{$name}-700);
 
           }
           &:active {
-              background-color: var(--#{$name}-700);
+              background-color: var(--#{$name}-800);
               label {
-                  background-color: var(--#{$name}-500);
-                  border-color: var(--#{$name}-700);
+                  background-color: var(--#{$name}-600);
+                  border-color: var(--#{$name}-800);
               }
           }
       }

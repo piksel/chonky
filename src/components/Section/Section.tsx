@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { CommonProps } from '../../types';
 import './Section.scss'
 export interface SectionProps extends CommonProps {
@@ -8,9 +8,11 @@ export interface SectionProps extends CommonProps {
     open?: boolean;
 }
 const SectionBody: React.FC<SectionProps> = (props) => {
-    const {children, header, open} = props;
+    const {children, header} = props;
+    const detailsRef = useRef<HTMLDetailsElement>(null);
+    const open = props.open ?? detailsRef.current?.open ?? false;
 
-    const Wrapper =  props.collapsible ? ({children}: {children: React.ReactNode}) => <details open={open} >{children}</details> : React.Fragment;
+    const Wrapper =  props.collapsible ? ({children}: {children: React.ReactNode}) => <details ref={detailsRef} open={open} >{children}</details> : React.Fragment;
 
     return (<section className="cky-section" style={props.style}>
         <Wrapper>

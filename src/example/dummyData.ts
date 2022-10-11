@@ -31,4 +31,30 @@ export const dummyTableData: DummyTableDataRow[] = [
         Description: "This pokébowl likes to do it's thing...",
         Color: "blue",
     }
+];
+
+export const specialColors: ButtonColor[] = [
+    'primary',
+    'bone',
 ]
+
+export const colors: ButtonColor[] = [
+    'primary',
+    'green',
+    'red',
+    'yellow',
+    'blue',
+    'orange',
+    'pink',
+    'gray',
+    'bone'
+];
+
+export const colorAliases: Partial<Record<ButtonColor, string[]>> = {
+    green: ['success'],
+    red: ['danger'],
+    yellow: ['warning'],
+    blue: ['info'],
+    gray: ['black'],
+    bone: ['secondary', 'ui'],
+};

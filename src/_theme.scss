@@ -49,8 +49,13 @@ $colors: (
   "red": #d32020,
   "blue": #146ed4,
   "orange": #e77415,
-  "yellow": #e77415,
+  "yellow": #e7c115,
   "pink": #e0188d,
+  // "white": #d0d0d0,
+  "gray": #7e7e7e,
+  // "black": #303030,
+  "bone": #e4dfd5,
+  "mint": #2ead83,
 );
 
 $color_shades: ();
@@ -58,11 +63,13 @@ $color_shades: ();
 @each $name, $color in $colors {
   $color_shades: map.set($color_shades, $name, (
     color.adjust($color, $lightness:  20%),
+    color.adjust($color, $lightness:  15%),
     color.adjust($color, $lightness:  10%),
     color.adjust($color, $lightness:  5%),
     $color,
     color.adjust($color, $lightness: -5%),
     color.adjust($color, $lightness: -10%),
+    color.adjust($color, $lightness: -15%),
     color.adjust($color, $lightness: -20%)
   ));
 }

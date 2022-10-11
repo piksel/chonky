@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { addClassNames } from "../../classNames";
 import { CommonProps } from "../../types";
 
@@ -9,6 +9,7 @@ interface TextboxProps extends CommonProps {
     multiline?: boolean
     value?: string
     placeholder?: string
+    valueChanged?: (newValue: string) => void;
 }
 
 
@@ -23,11 +24,21 @@ const genId = (() => {
 export const Textbox: React.FC<TextboxProps> = (props) => {
     const uid = useMemo(() => "tb-" + genId(), []);
 
-    const {style, label, multiline, value, placeholder} = props;
+    const {style, label, multiline, placeholder, valueChanged} = props;
+
 
     const classNames = addClassNames(props.classNames, 'cky-textbox');
 
-    const commonProps = {placeholder, value, id: uid};
+    const [valueState, setValueState] = useState(props.value);
+    const setValue = valueChanged ?? setValueState;
+    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        console.log(`Setting new value: %o, valueChanged is: %o`, e.target?.value, valueChanged);
+        setValue(e.target?.value);
+    }
+
+    const value = (valueChanged ? props.value : valueState) ?? '';
+
+    const commonProps = {placeholder, value, id: uid, onChange};
 
     return <div style={style} className={classNames}>
         <label htmlFor={uid}>
