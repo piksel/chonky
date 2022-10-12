@@ -15,6 +15,23 @@ export const DialogsExample = () => {
             I think you forgot something important!
         </Dialog>
 
+        <Dialog header="beep boop" 
+            disabled={disabled}
+            actions={(d) => <>
+            <Button onClick={() => d.handleResult(Dialog.Close)}>Close</Button>
+            I have text here for some reason
+            </>}
+            activator={<Button color="orange" children='🤖' />}
+        >
+            <div style={{textAlign: 'center'}}>
+            <code>data data</code>
+            <br/>
+            <code>data data</code>
+            
+            <div style={{margin: '30px', fontSize: '128px'}}>⚙️🔌☕</div>
+            </div>
+        </Dialog>
+
         <Dialog color="mint" header={"mint!"} 
             disabled={disabled}
             actions={(d) => <Button onClick={() => d.handleResult(Dialog.Close)}>k</Button>}

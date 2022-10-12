@@ -132,7 +132,7 @@ const DialogElement: React.FC<DialogProps> = (props) => {
                         ? actions(contextValue)
                     : Array.isArray(actions) 
                         ? actions.map((a,i) =>  <React.Fragment key={i}>{a}</React.Fragment>) 
-                    : <DialogAction activated={CloseAction} text={props.dismiss ?? 'Close'} />
+                    : <DialogAction color={props.color as any} activated={CloseAction} text={props.dismiss ?? 'Close'} />
                     }
                 </div>
             </DialogContext.Provider>
