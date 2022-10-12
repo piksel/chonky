@@ -1,0 +1,41 @@
+@use '../../theme';
+
+dialog.cky-dialog {
+    border: 1px theme.$border-color solid;
+    border-radius: theme.$border-radius;
+    background: theme.$light-bg;
+    min-width: 600px;
+    min-height: 400px;
+    border-bottom-width: 4px;
+    box-shadow: 0px 2px 5px #00000080, 0px 6px 10px #00000080;
+
+    &[open] {
+        display: flex;
+    }
+    flex-direction: column;
+    align-items: stretch;
+
+    &::backdrop {
+        // box-shadow: inset 0px 0px 100px #ffffff
+        backdrop-filter: grayscale(50%) blur(3px);
+        background: #ffffff80;
+    }
+
+    .cky-dialog-header {
+        flex: 0 0 auto;
+        font-size: theme.$font-xxl;
+        text-align: center;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+
+    .cky-dialog-content {
+        flex: 1 1 auto;
+    }
+
+    .cky-dialog-footer {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: space-evenly;
+    }
+}

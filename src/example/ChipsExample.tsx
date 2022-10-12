@@ -1,9 +1,9 @@
 import { ColorValues } from "../colors";
-import { Box, Chip, Section } from "../components";
+import { Box, Chip } from "../components";
 
 
 export const ChipsExample = () => (
-    <Section collapsible open header="Chips">
+    <>
       <div style={{padding: '15px'}}>
         {ColorValues.map(c => <Chip color={c} key={c}>{c}</Chip>)}
         {/* <Chip color='primary'>Dill</Chip>
@@ -29,5 +29,5 @@ export const ChipsExample = () => (
           </details>
 
         </Box>
-      </Section>
+      </>
 );

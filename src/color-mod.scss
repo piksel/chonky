@@ -6,7 +6,11 @@
 @each $name, $color in theme.$colors {
     .cky-mod-#{$name} {
         background-color: var(--#{$name}-500);
-        color: var(--button-text-colorized);
+        @if $name == 'yellow' or $name == 'bone' {
+            // 
+        } @else {
+            color: var(--button-text-colorized);
+        }
     }
 
     $alias: map.get(theme.$color_aliases, $name);

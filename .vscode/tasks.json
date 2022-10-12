@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+			"label": "Generate component exports",
+			// "type": "",
+            "type": "shell",
+			"command": "${workspaceFolder}/scripts/mk-comp-export.sh",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+			"isBackground": false,
+			"icon": {
+                "id": "gear",
+                "color": "terminal.ansiCyan"
+            },
+            "problemMatcher": []
+		},
+        {
+			"label": "Run Example App",
+			"type": "npm",
+			"script": "start",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}"]
+			}
+		},
+        {
+			"label": "Watch SASS",
+			"type": "npm",
+			"script": "start-sass",
+			"isBackground": true,
+			"problemMatcher": {
+				"base": "$tsc-watch",
+				"fileLocation": ["relative", "${workspaceFolder}"]
+			}
+		},
+    ]
+}

@@ -1,26 +1,31 @@
 import { ColorValues, SpecialColors } from "../colors";
-import { Button, ButtonColor, Section } from "../components";
+import { Button, ButtonColor, ButtonContextProvider } from "../components";
 
-export const ButtonsExample = ({open}: {open?: boolean}) => (
-    <Section collapsible open={open} header="Buttons">
-                <div style={{padding: '15px'}}>
+export const ButtonsExample = () => (<>
+    <div style={{padding: '15px'}}>
 
-        <Button primary>Primary</Button>
-        <Button>Not as important</Button>
-        <Button danger>Dangerous!</Button>
+        <AllStates><Button primary>Primary</Button></AllStates>
+        <AllStates><Button>Not as important</Button></AllStates>
+        <AllStates><Button danger>Dangerous!</Button></AllStates>
 
-                </div>
-        <div style={{padding: '15px'}}>
-            {ColorValues.filter(c => !SpecialColors.includes(c)).map(c => 
+    </div>
+    <div style={{padding: '15px'}}>
+        {ColorValues.filter(c => !SpecialColors.includes(c)).map(c => 
+        <AllStates>
             <Button key={c} color={c as ButtonColor}>
-                {c[0].toUpperCase()+c.substring(1)}!
-            </Button>)}
-        {/* <Button primary>Primary</Button>
-        <Button>Not as important</Button>
-        <Button color="green">Green!</Button>
-        <Button color="danger">Danger!</Button>
-        <Button color="blue">Blue!</Button>
-        <Button color="orange">Orange!</Button>
-        <Button color="pink">Pink!</Button> */}
-        </div>
-    </Section>);
+            {c[0].toUpperCase()+c.substring(1)}!
+            </Button>
+        </AllStates>)}
+    </div>
+</>);
+
+const AllStates: React.FC = ({children}) => (
+    <div style={{display: 'inline-flex', flexDirection: 'column', rowGap: '5px', margin: '5px'}}>
+    {children}
+    <ButtonContextProvider value={{disabled: true}}>
+        {children}
+    </ButtonContextProvider>
+
+    </div>
+
+)

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Box, Section } from "../components";
+import { Box } from "../components";
 import {ColorAliases, ColorValues} from "../colors";
 
 const levels = [
@@ -15,8 +15,7 @@ const levels = [
 ]
 
 export const ColorsExample = ({open}: {open?: boolean}) => (
-    <Section collapsible open={true} header="Colors">
-        <Box style={{maxWidth: '700px'}}>
+        <Box style={{maxWidth: '700px', overflowX: 'auto'}}>
             <table className="colors-example">
                 <thead>
                 <tr>
@@ -38,7 +37,6 @@ export const ColorsExample = ({open}: {open?: boolean}) => (
                 </tbody>
             </table>
         </Box>
-    </Section>
 );
 
 const rgb2hex = (rgb: string) => {

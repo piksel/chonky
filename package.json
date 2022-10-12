@@ -9,6 +9,7 @@
   "dependencies": {},
   "scripts": {
     "start": "react-scripts start",
+    "start-css": "sass -c -w src/index.scss dist/chonky.css",
     "build-example": "react-scripts build",
     "build-ts": "tsc -p tsconfig.lib.json",
     "build-css": "sass src/index.scss dist/chonky.css",
@@ -59,7 +60,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "sass": "^1.49.9",
     "tslib": "^2.4.0",
-    "typescript": "^4.5.5",
+    "typescript": "^4.8.2",
     "web-vitals": "^2.1.4"
   },
   "peerDependencies": {

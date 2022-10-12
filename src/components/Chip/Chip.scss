@@ -3,44 +3,27 @@
 
 .cky-chip {
     border-radius: theme.$border-radius;
-    font-size: 12px;
+    font-size: 1em;
+    line-height: 1em;
+    vertical-align: middle;
+    // color: black;
 
     $lightness: 50%;
     $saturation: 50%;
     $step: 36;
 
+    &.cky-mod-yellow, &.cky-mod-bone {
+        // color: black;
+    }
 
-    @each $name, $color in theme.$colors {
-        .cky-mod-#{$name} {
-            background: $color;
-        }
-      }
-
-    // &.cky-mod-primary {
-    //     background: theme.$primary;
-    // }
-
-    // &.cky-mod-green {
-    //     background: #359735;
-    // }
-  
-    // &.cky-mod-danger {
-    //     background: #d32020;
-    // }
-
-    // &.cky-mod-blue {
-    //     background: #146ed4;
-    // }
-
-    // &.cky-mod-orange {
-    //     background: #e77415;
-    // }
-
-    // &.cky-mod-pink {
-    //     background: #e0188d;
+    // @each $name, $color in theme.$colors {
+    //     .cky-mod-#{$name} {
+    //         background: $color;
+    //     }
     // }
 
     &.cky-mod-rgb {
+        color: white;
         background: linear-gradient(
             0deg,
             hsl($step *  0, $saturation, $lightness)   0%,
@@ -55,14 +38,22 @@
             hsl($step *  9, $saturation, $lightness)  90%,
             hsl($step * 10, $saturation, $lightness) 100%
         );
+        animation: party 2s linear infinite;
         background-attachment: fixed;
         background-size: auto 400px;
+
+        @keyframes party {
+            from {background-position-y: 0%;}
+            to {background-position-y: 180%;}
+        }
     }
 
-    padding: 5px 10px;
-    margin: 3px;
+    
+
+    padding: .1em .4em;
+    margin: .1em;
     display: inline-block;
-    color: white;
+    // color: white;
 
     &.cky-mod-right {
         align-self: flex-end;
@@ -71,3 +62,4 @@
         align-self: flex-start;
     }
 }
+
