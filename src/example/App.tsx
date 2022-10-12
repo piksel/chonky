@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
 
-      <Section collapsible header="Buttons">
+      <Section collapsible open header="Buttons">
           <ButtonsExample />
       </Section>
 
@@ -29,11 +29,11 @@ function App() {
         <TextboxesExample />
       </Section>
 
-      <Section collapsible open header="Chips">
+      <Section collapsible header="Chips">
         <ChipsExample />
       </Section>
 
-      <Section collapsible header="Colors">
+      <Section collapsible open header="Colors">
         <ColorsExample />
       </Section>
 
@@ -41,7 +41,7 @@ function App() {
         <DialogsExample />
       </Section>
 
-      <Section collapsible open header="Table">
+      <Section collapsible header="Table">
         <TableExample />
       </Section>
     </div>
