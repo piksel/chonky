@@ -1,9 +1,9 @@
 @use '../../theme';
 
-dialog.cky-dialog {
-    border: 1px theme.$border-color solid;
+.cky-dialog {
+    border: 1px var(--component-border-color) solid;
     border-radius: theme.$border-radius;
-    background: theme.$light-bg;
+    background-color: var(--component-bg-color);
     min-width: 600px;
     min-height: 400px;
     border-bottom-width: 4px;

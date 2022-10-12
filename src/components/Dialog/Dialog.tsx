@@ -1,5 +1,6 @@
 import React, { Dispatch, ReactElement, ReactFragment, ReactNode, useContext, useEffect, useMemo, useRef, useState } from "react";
 import { addClassNames } from "../../classNames";
+import { ColorValue } from "../../colors";
 import { CommonProps } from "../../types";
 import { Button, ButtonContextProvider, ButtonProps } from "../Button";
 
@@ -27,6 +28,7 @@ export interface DialogProps extends CommonProps {
     activator?: (( showDialog: ()=>void ) => React.ReactNode) | string | ReactElement | ReactFragment
     disabled?: boolean
     dismiss?: string
+    color?: ColorValue
 }
 
 type DialogElementType = typeof DialogElement;
@@ -100,7 +102,9 @@ const DialogElement: React.FC<DialogProps> = (props) => {
         setState({open: openProp});
     }, [openProp])
 
-    const className = addClassNames(props.classNames, 'cky-dialog');
+    const className = addClassNames(props.classNames, 
+        'cky-dialog', 
+        props.color && `cky-mod-${props.color}`);
 
     const openAction = () => setState({open: true})
 

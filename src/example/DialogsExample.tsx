@@ -8,20 +8,20 @@ export const DialogsExample = () => {
             
             actions={[
                 <Dialog.Action primary text="omg. THANKS" activated={Dialog.Close} />,
-                <Dialog.Action danger text="nah" activated={Dialog.Close} />
+                <Dialog.Action text="I want to hear about our lord and saviour Jesus Christ" activated={Dialog.Close} />,
             ]} 
             activator={(showDialog) => <Button disabled={disabled} primary onClick={() => showDialog()}>Show modal!</Button>}
         >
             I think you forgot something important!
         </Dialog>
 
-        <Dialog header={"mint!"} 
+        <Dialog color="mint" header={"mint!"} 
             disabled={disabled}
-            actions={(d) => <Button onClick={() => d.handleResult(Dialog.Close)}>bye</Button>}
-            activator={<Button color="mint">Mint modal!</Button>}
+            actions={(d) => <Button onClick={() => d.handleResult(Dialog.Close)}>k</Button>}
+            activator={<Button color="mint">Mint?</Button>}
         >
-            <div style={{fontSize: '48px'}}>
-            <Chip color="mint">mint!</Chip>
+            <div style={{fontSize: '128px', display: 'flex', height: '315px', alignItems: 'center', justifyContent: 'center'}}>
+            mint!
 
             </div>
         </Dialog>
