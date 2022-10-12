@@ -38,13 +38,13 @@
             hsl($step *  9, $saturation, $lightness)  90%,
             hsl($step * 10, $saturation, $lightness) 100%
         );
-        animation: party 2s linear infinite;
+        animation: party 4s linear infinite;
         background-attachment: fixed;
         background-size: auto 400px;
 
         @keyframes party {
-            from {background-position-y: 0%;}
-            to {background-position-y: 180%;}
+            from {background-position-y: 0;}
+            to {background-position-y: 400px;}
         }
     }
 
