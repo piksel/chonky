@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/chonky/static/css/main.5c9d7860.css",
-    "main.js": "/chonky/static/js/main.9fb56e58.js",
+    "main.js": "/chonky/static/js/main.1a91cb57.js",
     "static/js/787.ba25cc4c.chunk.js": "/chonky/static/js/787.ba25cc4c.chunk.js",
     "index.html": "/chonky/index.html",
     "main.5c9d7860.css.map": "/chonky/static/css/main.5c9d7860.css.map",
-    "main.9fb56e58.js.map": "/chonky/static/js/main.9fb56e58.js.map",
+    "main.1a91cb57.js.map": "/chonky/static/js/main.1a91cb57.js.map",
     "787.ba25cc4c.chunk.js.map": "/chonky/static/js/787.ba25cc4c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5c9d7860.css",
-    "static/js/main.9fb56e58.js"
+    "static/js/main.1a91cb57.js"
   ]
 }
